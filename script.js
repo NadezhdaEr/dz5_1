@@ -82,6 +82,46 @@ function addName() {
   localStorage.getItem('nameInput', JSON.stringify(nameInput));
 }
 
+function finishedfilterTasks(button){
+  const taskList = document.getElementById('taskList');
+
+  Array.from(taskList.children).forEach(li => {
+    const taskText = li.querySelector("span").textContent.toLowerCase();
+    if (checked = true){
+      li.style.display = "";
+    }
+    else {
+      li.style.display = 'none';
+    }
+  })
+
+}
+
+function workfilterTasks(button){
+  const taskList = document.getElementById('taskList');
+
+  Array.from(taskList.children).forEach(li => {
+    const taskText = li.querySelector("span").textContent.toLowerCase();
+    if (checked = false){
+      li.style.display = "";
+    }
+    else {
+      li.style.display = 'none';
+    }
+  })
+
+}
+
+function allfilterTasks(button){
+  const taskList = document.getElementById('taskList');
+
+  Array.from(taskList.children).forEach(li => {
+    const taskText = li.querySelector("span").textContent.toLowerCase();
+          li.style.display = "";
+  })
+
+}
+
 
 
 
