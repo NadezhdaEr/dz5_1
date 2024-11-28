@@ -9,7 +9,7 @@ function loadTasks(){
   tasks.forEach(tasks => {
     const li = document.createElement('li');
     li.innerHTML = `
-      <span>${task}</span>
+      <span><input type="checkbox" name="task">${task}</span>
       <button onclick="editTask(this)">Редактировать</button>
       <button onclick="deleteTask(this)">Удалить</button>
     `;
@@ -27,7 +27,7 @@ function addTask() {
   
   const li = document.createElement('li');
   li.innerHTML = `
-    <span>${taskText}</span>
+    <span><input type="checkbox" name="task">${taskText}</span>
     <button onclick="editTask(this)">Редактировать</button>
     <button onclick="deleteTask(this)">Удалить</button>
   `;
@@ -75,3 +75,14 @@ function filterTasks(){
   })
 
 }
+
+function addName() {
+  const nameInput = document.getElementById('nameInput');
+  console.log(nameInput)
+  localStorage.getItem('nameInput', JSON.stringify(nameInput));
+}
+
+
+
+
+
