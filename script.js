@@ -2,11 +2,14 @@ document.addEventListener('DOMContentLoaded', () => {
   loadTasks();
 } );
 
+const addTaskButton = document.getElementById('add_task');
+
 function loadTasks(){
   const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+  console.log(tasks);
   const taskList = document.getElementById('taskList');
 
-  tasks.forEach(tasks => {
+  tasks.forEach(task => {
     const li = document.createElement('li');
     li.innerHTML = `
       <span><input type="checkbox" name="task">${task}</span>
@@ -18,6 +21,7 @@ function loadTasks(){
 }
 
 function addTask() {
+  
   const taskInput = document.getElementById('taskInput');
   const taskText = taskInput.value.trim();
 
@@ -35,6 +39,10 @@ function addTask() {
   saveTasks();
   taskInput.value = "";
 }
+
+addTaskButton.addEventListener("click", ()=> {
+  addTask()
+})
 
 function saveTasks() {
   const taskList = document.getElementById('taskList');
@@ -63,6 +71,7 @@ function filterTasks(){
   const filterInput = document.getElementById('filterInput');
   const filterText = filterInput.value.toLowerCase();
   const taskList = document.getElementById('taskList');
+
 
   Array.from(taskList.children).forEach(li => {
     const taskText = li.querySelector("span").textContent.toLowerCase();
@@ -102,7 +111,7 @@ function workfilterTasks(button){
 
   Array.from(taskList.children).forEach(li => {
     const taskText = li.querySelector("span").textContent.toLowerCase();
-    if (checked = false){
+    if (checked == false){
       li.style.display = "";
     }
     else {
